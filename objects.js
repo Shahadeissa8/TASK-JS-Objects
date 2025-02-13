@@ -1,3 +1,5 @@
+const { ne } = require("@faker-js/faker");
+
 /**
  * createBook
  *
@@ -12,10 +14,17 @@
  */
 function createBook(title, author, publishedYear, genre) {
   // write your code here...
+  return {
+    title: title,
+    author: author,
+    publishedYear: publishedYear,
+    genre: genre,
+  };
 }
 
 // DO NOT CHANGE THE LINE OF CODE BELOW (you can use it for testing your code)
-const book = createBook();
+const book = createBook("12 Rules for life", "JB", "2018", "Self-help");
+// console.log(book);
 
 /**
  * printBookTitleAndYear
@@ -27,8 +36,9 @@ const book = createBook();
  */
 function printBookTitleAndYear(book) {
   // write your code here...
+  return book.title + " " + book["publishedYear"];
 }
-
+// console.log(printBookTitleAndYear(book));
 /**
  * addPageCount
  *
@@ -38,6 +48,8 @@ function printBookTitleAndYear(book) {
  */
 function addPageCount(book, pageCount) {
   // write your code here...
+  book.pageCount = pageCount;
+  return book;
 }
 
 /**
@@ -50,6 +62,8 @@ function addPageCount(book, pageCount) {
  */
 function addISBN(book, ISBN) {
   // write your code here...
+  book.ISBN = ISBN;
+  return book;
 }
 
 /**
@@ -62,6 +76,8 @@ function addISBN(book, ISBN) {
  */
 function updatePublishedYear(book, newYear) {
   // write your code here...
+  book.newYear = newYear;
+  return book;
 }
 
 /**
@@ -72,10 +88,15 @@ function updatePublishedYear(book, newYear) {
  *
  * - returns the book object with the `author` property changed to an array with BOTH authors
  */
+
 function addSecondAuthor(book, additionalAuthor) {
   // write your code here...
+  // book.author = book.author + " " + additionalAuthor;
+  // [45, 67, 87]
+  book.author = [book.author, additionalAuthor];
+  return book;
 }
-
+// console.log(addSecondAuthor(book, "noor"));
 /**
  * 🌶️🌶️🌶️ addReview
  *
